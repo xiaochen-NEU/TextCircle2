@@ -3,18 +3,30 @@
 </head>
 
 <body>
-  <h1>Welcome to TextCircle!</h1>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#">TextCircle</a>
 
-  {{> date_display}}
+		</div> <!-- / nav container --> 
+	</nav>
+	<div class="container top-margin">
+		<div class="row">
+			<div class="col-md-6">
+				{{> editor}}
+			</div>
+			<div class="col-md-6">
+				{{> viewer}}
+			</div>
+		</div>
 
-  {{> editor}}
+	</div>
 </body>
 
-<template name="date_display">
-	{{current_date}} {{myVar}}
+<template name="editor">
+	{{>sharejsCM docid=docid onRender=config id="editor"}} 
 </template>
 
-<template name="editor">
-	{{>sharejsCM docid=docid id="editor"}}
- 
+<template name="viewer">
+	<iframe id="viewer_iframe">
+	</iframe>
 </template>
